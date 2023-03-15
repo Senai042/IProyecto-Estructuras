@@ -1,1 +1,81 @@
+#include <iostream>
 
+using namespace std;
+//falta el constructor en todos
+//Estructura de los grupos musicales
+
+struct GMusical{ 
+    string nombre;
+    int anno;
+    GMusical*sig;
+    struct Persona *director;
+    struct ParticipacionEvento* sublistaEventos ;
+	struct Integrante* sublistaIntegrantes;
+}*PGMusical;
+
+//sublistas con las que se relaciona el GMusical
+//tomado de un ejemplo de la profesora
+//aparentemente, no se declara un "Primero"
+ struct ParticipacionEvento{ 
+        struct Evento *enlace;
+        ParticipacionEvento *sig;
+ };
+
+struct Integrante{
+         struct Persona *enlace;
+         Integrante *sig;
+};
+//------------------------0----------------------
+//Estrucutra de evento y su sublista
+struct Evento{
+	String Nombre;
+	String place;
+	String tiempo;
+	String dia;
+	String hora;
+	struct Caracteristicas* SublistaRequisitos;
+}*PEvento;
+
+ struct Caracteristicas{ 
+        int Cantidad;
+        struct Instrumentos*enlace;// ni idea si esto es asi, revisar
+        Caracteristicas *sig;
+ };
+//------------------------0----------------------
+//estructura de personas doble y sus sublistas
+struct Persona{
+    String name;
+    int id,edad;
+    Persona*sig;
+    Persona*ant;
+    //deduzco es una sublista de los grupos a los que pertenece, estudiando <--
+    struct horarios*sublistaHora
+    struct instrumentos*sublistaIns
+}*PrimeroPersona;
+
+struct horarios{
+	String Dia, HoraI, HoraF;
+	horarios*sig; 
+};
+
+//lista circular con inserción al final de instrumentos
+struct instrumentos{
+	int id;
+	String name;
+	String Tipe;
+};
+
+//lista doblemente enlazada y circular de el historial de eventos
+
+struct historial{
+	int Calificacion;
+	struct Evento*enlace;
+	struct GMusical*enlace;
+	//falta la sublista de quienes participaron;
+	historial*sig;
+	historial*ant;
+};
+
+int main()
+{
+}
